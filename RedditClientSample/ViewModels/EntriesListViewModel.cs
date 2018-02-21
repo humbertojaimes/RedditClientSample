@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using RedditClientSample.Interfaces;
 using RedditClientSample.Models;
 using RedditClientSample.Services.LocalServices;
@@ -18,10 +19,15 @@ namespace RedditClientSample.ViewModels
         }
 
 
-        bool useMockData = true;
+        bool useMockData = false;
         IRedditService redditService;
 
         public EntriesListViewModel()
+        {
+            InitViewModel();
+        }
+
+        async Task InitViewModel()
         {
             if (useMockData)
                 redditService = new LocalRedditService();
@@ -29,7 +35,8 @@ namespace RedditClientSample.ViewModels
                 redditService = new RestRedditService();
 
             Title = "Top Reddit Entries";
-            TopEntries = new ObservableCollection<RedditEntry>(redditService.GetTopEntries());
+            TopEntries = new ObservableCollection<RedditEntry>(await redditService.GetTopEntries());
+     
         }
     }
 }

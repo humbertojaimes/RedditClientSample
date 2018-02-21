@@ -13,7 +13,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Label FontSize="Large" Text="Top Entries" />
-            <ListView HasUnevenRows="true" ItemsSource="{Binding TopEntries}" ItemTapped="Handle_ItemTapped">
+            <ListView IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsRefreshing}" RefreshCommand="{Binding RefreshCommand}" HasUnevenRows="true" ItemsSource="{Binding TopEntries}" ItemTapped="Handle_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

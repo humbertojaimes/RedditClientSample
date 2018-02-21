@@ -28,15 +28,15 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25" />
                                     <RowDefinition Height="25" />
-                                    <RowDefinition Height="75" />
+                                    <RowDefinition Height="Auto" />
                                     <RowDefinition Height="45" />
                                 </Grid.RowDefinitions>
-                                <BoxView Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="0" HeightRequest="5" WidthRequest="5" Color="{Binding WasReaded,Converter={StaticResource boolToColorIndicatorConverter}" />
+                                <BoxView Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="0" HeightRequest="10" WidthRequest="10" Color="{Binding WasReaded,Converter={StaticResource boolToColorIndicatorConverter}" />
                                 <Label TextColor="Red" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Author}" />
                                 <Label TextColor="White" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Createdutc, Converter={StaticResource dateToHoursCvt},StringFormat='{0} hours ago'}" />
                                 <StackLayout Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Orientation="Horizontal">
                                     <Image WidthRequest="70" HeightRequest="70" HorizontalOptions="Center" Aspect="AspectFit" Source="{Binding Thumbnail,Converter={StaticResource uriToCachedImageCvt}" />
-                                    <Label TextColor="White"  VerticalOptions="Center" Text="{Binding Title}" LineBreakMode="WordWrap" FontSize="Small" />
+                                    <Label TextColor="White"  VerticalOptions="Center" Text="{Binding Title}" LineBreakMode="WordWrap" FontSize="Small"  Margin="0,0,5,0"/>
                                 </StackLayout>
                                 <Image Grid.Row="3" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="20" HeightRequest="20" Source="remove" >
                                     <Image.GestureRecognizers>

@@ -10,5 +10,6 @@ namespace RedditClientSample.Interfaces
     {
 
         Task<IEnumerable<RedditEntry>> GetTopEntries();
+        Task<IEnumerable<RedditEntry>> GetNextEntries(string lastEntryName);
     }
 }

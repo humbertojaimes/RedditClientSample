@@ -8,6 +8,7 @@ using RedditClientSample.Models;
 using RedditClientSample.Services.ResponseEntities;
 using RedditClientSample.Extensions;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace RedditClientSample.Services.LocalServices
 {
@@ -22,6 +23,11 @@ namespace RedditClientSample.Services.LocalServices
                 return Common.RedditResponseParser.ParseTopEntriesResponse(topEntriesLocalContent);
             }
             return null;
+        }
+
+        public async Task<IEnumerable<RedditEntry>> GetNextEntries(string lastEntryName)
+        {
+            throw new Exception("Pagination not supported with local data");
         }
     }
 }

@@ -79,6 +79,18 @@ namespace RedditClientSample.Models
             }
         }
 
+        private string name;
+
+        [JsonProperty("name")]
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                SetProperty(ref name, value);
+            }
+        }
+
         private bool wasReaded;
 
         [JsonIgnore]
@@ -102,6 +114,7 @@ namespace RedditClientSample.Models
                 SetProperty(ref hasImage, value);
             }
         }
+
 
     }
 }

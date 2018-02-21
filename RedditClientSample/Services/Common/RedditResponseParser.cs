@@ -50,6 +50,7 @@ namespace RedditClientSample.Services.Common
                         Createdutc = child.data.created_utc.UnixTimeStampToDateTime(),
                         Title = child.data.title,
                         Image = image,
+                        Name = child.data.name,
                         HasImage = hasImage
                     };
 

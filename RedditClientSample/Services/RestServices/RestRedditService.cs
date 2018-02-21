@@ -15,7 +15,7 @@ namespace RedditClientSample.Services.RestServices
 
         public async Task<IEnumerable<RedditEntry>> GetTopEntries()
         {
-            string requestUri = $"{Constants.ServicesConstants.apiUrl}{Constants.ServicesConstants.topEntriesPath}";
+            string requestUri = $"{Constants.ServicesConstants.apiUrl}{Constants.ServicesConstants.topEntriesPath}{Constants.ServicesConstants.pageLimit}";
             InitHttpclient();
             var apiResult = await client?.GetStringAsync(requestUri);
 
@@ -25,5 +25,20 @@ namespace RedditClientSample.Services.RestServices
             }
             return null;
         }
+
+        public async Task<IEnumerable<RedditEntry>> GetNextEntries(string lastEntryName)
+        {
+            string query = string.Format(Constants.ServicesConstants.nextEntriesPath, Constants.ServicesConstants.pageLimit, lastEntryName);
+            string requestUri = $"{Constants.ServicesConstants.apiUrl}{query}";
+            InitHttpclient();
+            var apiResult = await client?.GetStringAsync(requestUri);
+
+            if (!string.IsNullOrEmpty(apiResult))
+            {
+                return await Common.RedditResponseParser.ParseTopEntriesResponse(apiResult);
+            }
+            return null;
+        }
+
     }
 }

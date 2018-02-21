@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage x:Name="EntriesListPage" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RedditClientSample.Views.EntriesListPage" Title="{Binding Title}" Icon="{Binding Icon}" xmlns:viewmodels="clr-namespace:RedditClientSample.ViewModels" xmlns:converters="clr-namespace:RedditClientSample.Views.Converters">
+<ContentPage IsBusy="{Binding IsBusy}" x:Name="EntriesListPage" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RedditClientSample.Views.EntriesListPage" Title="{Binding Title}" Icon="{Binding Icon}" xmlns:viewmodels="clr-namespace:RedditClientSample.ViewModels" xmlns:converters="clr-namespace:RedditClientSample.Views.Converters">
     <ContentPage.BindingContext>
         <viewmodels:EntriesListViewModel />
     </ContentPage.BindingContext>
@@ -13,7 +13,7 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="Black">
             <Label FontSize="Large" TextColor="White" Text="Top Entries" />
-            <ListView BackgroundColor="Black" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsRefreshing}" RefreshCommand="{Binding RefreshCommand}" HasUnevenRows="true" ItemsSource="{Binding TopEntries}" ItemTapped="Handle_ItemTapped">
+            <ListView BackgroundColor="Black" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsRefreshing}" RefreshCommand="{Binding RefreshCommand}" HasUnevenRows="true" ItemsSource="{Binding TopEntries}" ItemTapped="Handle_ItemTapped" ItemAppearing="Handle_ItemAppearing">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -49,7 +49,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-                <Button Text="Dismiss All" Clicked="DismissAll_Click_Handle"/>
+            <ActivityIndicator Color="Red" HeightRequest="20" WidthRequest="20" HorizontalOptions="Center" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+            <Button Text="Dismiss All" Clicked="DismissAll_Click_Handle"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

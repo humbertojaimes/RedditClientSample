@@ -66,6 +66,26 @@ namespace RedditClientSample.ViewModels
             }
         }
 
+        public ICommand GetNextEntriesCommand
+        {
+            get
+            {
+                return new Command(async (entry) =>
+                {
+                    if (!IsBusy)
+                    {
+                        IsBusy = true;
+                        var newEntries = await redditService.GetNextEntries((entry as RedditEntry).Name);
+                        foreach (var newEntry in newEntries)
+                        {
+                            TopEntries.Add(newEntry);
+                        }
+                        IsBusy = false;
+                    }
+                });
+            }
+        }
+
 
 
         bool useMockData = false;

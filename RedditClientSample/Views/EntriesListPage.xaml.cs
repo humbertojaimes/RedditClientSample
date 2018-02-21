@@ -55,6 +55,15 @@ namespace RedditClientSample.Views
             mainStack.FadeTo(1, 1500, Easing.Linear);
         }
 
+        void Handle_ItemAppearing(object sender, ItemVisibilityEventArgs e)
+        {
+            var entry = e.Item as RedditEntry;
+            var context = BindingContext as EntriesListViewModel;
+            if(context.TopEntries.IndexOf(entry) == context.TopEntries.Count-1)
+            {
+                context.GetNextEntriesCommand.Execute(entry);  
+            }
+        } 
 
     }
 }

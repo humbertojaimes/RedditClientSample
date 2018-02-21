@@ -55,6 +55,18 @@ namespace RedditClientSample.Models
             }
         }
 
+        private Uri image;
+
+        [JsonProperty("thumbnail")]
+        public Uri Image
+        {
+            get { return image; }
+            set
+            {
+                SetProperty(ref image, value);
+            }
+        }
+
         private int commentsNumber;
 
         [JsonProperty("num_comments")]
@@ -76,6 +88,18 @@ namespace RedditClientSample.Models
             set
             {
                 SetProperty(ref wasReaded, value);
+            }
+        }
+
+        private bool hasImage;
+
+        [JsonIgnore]
+        public bool HasImage
+        {
+            get { return hasImage; }
+            set
+            {
+                SetProperty(ref hasImage, value);
             }
         }
 

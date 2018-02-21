@@ -45,6 +45,7 @@ namespace RedditClientSample.Services.ResponseEntities
         public object approved_by { get; set; }
         public bool over_18 { get; set; }
         public bool hidden { get; set; }
+        public Preview preview { get; set; }
         public string thumbnail { get; set; }
         public string subreddit_id { get; set; }
         public object edited { get; set; }
@@ -67,6 +68,42 @@ namespace RedditClientSample.Services.ResponseEntities
         public bool visited { get; set; }
         public object num_reports { get; set; }
         public object distinguished { get; set; }
+    }
+
+    public class Preview
+    {
+        public Image[] images { get; set; }
+        public bool enabled { get; set; }
+    }
+
+    public class Image
+    {
+        public Source source { get; set; }
+        public Resolution[] resolutions { get; set; }
+        public Variants variants { get; set; }
+        public string id { get; set; }
+    }
+
+    public class Source
+    {
+        public string url { get; set; }
+        public int width { get; set; }
+        public int height { get; set; }
+    }
+
+    public class Variants
+    {
+    }
+
+    public class Resolution
+    {
+        public string url { get; set; }
+        public int width { get; set; }
+        public int height { get; set; }
+    }
+
+    public class Secure_Media_Embed
+    {
     }
 
     public class Media_Embed
@@ -102,13 +139,7 @@ namespace RedditClientSample.Services.ResponseEntities
         public string author_url { get; set; }
     }
 
-    public class Secure_Media_Embed
-    {
-        public string content { get; set; }
-        public int width { get; set; }
-        public bool scrolling { get; set; }
-        public int height { get; set; }
-    }
+  
 
     public class Media
     {

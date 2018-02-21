@@ -9,15 +9,21 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid Padding="40">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="70" />
-                <RowDefinition Height="300" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Label Grid.Row="0" HorizontalOptions="Center" FontSize="Large" Text="{Binding SelectedRedditEntry.Author}" />
-            <Image Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="250" HeightRequest="250" Source="{Binding SelectedRedditEntry.Thumbnail,Converter={StaticResource uriToCachedImageCvt}}" />
-            <Label Grid.Row="2" FontSize="Medium" Text="{Binding SelectedRedditEntry.Title}" />
-        </Grid>
+        <ScrollView>
+            <Grid Padding="40">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70" />
+                    <RowDefinition Height="260" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" HorizontalOptions="Center" FontSize="Large" Text="{Binding SelectedRedditEntry.Author}" />
+                <Image Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="250" HeightRequest="250" Source="{Binding SelectedRedditEntry.Thumbnail,Converter={StaticResource uriToCachedImageCvt}}" />
+                <Button IsVisible="{Binding HasImage}" Grid.Row="2" Text="View Full Size Image" Command="{Binding ViewImageCommand}" />
+                <Button IsVisible="{Binding IsSelected}" Grid.Row="3" Text="Save image to Gallery" Command="{Binding SaveImageCommand}" />
+                <Label Grid.Row="4"  FontSize="Medium" Text="{Binding SelectedRedditEntry.Title}" />
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

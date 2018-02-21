@@ -71,6 +71,7 @@
     <Compile Include="Services\RestServices\BaseRestApiService.cs" />
     <Compile Include="Constants\ServicesConstants.cs" />
     <Compile Include="Services\Common\RedditResponseParser.cs" />
+    <Compile Include="Interfaces\IImageManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

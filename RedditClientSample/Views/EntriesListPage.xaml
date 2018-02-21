@@ -11,9 +11,9 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label FontSize="Large" Text="Top Entries" />
-            <ListView IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsRefreshing}" RefreshCommand="{Binding RefreshCommand}" HasUnevenRows="true" ItemsSource="{Binding TopEntries}" ItemTapped="Handle_ItemTapped">
+        <StackLayout BackgroundColor="Black">
+            <Label FontSize="Large" TextColor="White" Text="Top Entries" />
+            <ListView BackgroundColor="Black" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsRefreshing}" RefreshCommand="{Binding RefreshCommand}" HasUnevenRows="true" ItemsSource="{Binding TopEntries}" ItemTapped="Handle_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -49,6 +49,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+                <Button Text="Dismiss All" Clicked="DismissAll_Click_Handle"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

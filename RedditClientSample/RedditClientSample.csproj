@@ -31,6 +31,14 @@
     <EmbeddedResource Include="App.xaml" />
     <EmbeddedResource Include="RedditClientSamplePage.xaml" />
     <EmbeddedResource Include="LocalData\top.json" />
+    <EmbeddedResource Include="Views\MainMasterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EntriesListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -46,6 +54,15 @@
     <Compile Include="Helpers\LocalFilesHelper.cs" />
     <Compile Include="Constants\LocalFiles.cs" />
     <Compile Include="Services\ResponseEntities\RedditApiResponse.cs" />
+    <Compile Include="Views\MainMasterPage.xaml.cs">
+      <DependentUpon>MainMasterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntriesListPage.xaml.cs">
+      <DependentUpon>EntriesListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntryDetailPage.cs" />
+    <Compile Include="ViewModels\EntriesListViewModel.cs" />
+    <Compile Include="ViewModels\EntryDetailViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

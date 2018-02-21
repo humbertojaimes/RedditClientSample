@@ -5,6 +5,8 @@ namespace RedditClientSample.ViewModels
     {
         public EntryDetailViewModel()
         {
+            Title = "Entry Detail";
+            Icon = "Menu";
         }
     }
 }

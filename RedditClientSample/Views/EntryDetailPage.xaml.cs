@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace RedditClientSample.Views
 {
-    public partial class MainMasterPage : ContentPage
+    public partial class EntryDetailPage : ContentPage
     {
-        public MainMasterPage()
+        public EntryDetailPage()
         {
             InitializeComponent();
         }

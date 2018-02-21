@@ -1,5 +1,8 @@
-﻿using Xamarin.Forms;
+﻿using RedditClientSample.Views;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace RedditClientSample
 {
     public partial class App : Application
@@ -8,7 +11,7 @@ namespace RedditClientSample
         {
             InitializeComponent();
 
-            MainPage = new RedditClientSamplePage();
+            MainPage = new MainMasterDetailPage();
         }
 
         protected override void OnStart()

@@ -55,6 +55,19 @@ namespace RedditClientSample.ViewModels
             }
         }
 
+        public ICommand DeleteEntryCommand
+        {
+            get
+            {
+                return new Command( (entry) =>
+                {
+                    TopEntries.Remove(entry as RedditEntry);
+                });
+            }
+        }
+
+
+
         bool useMockData = false;
         IRedditService redditService;
 

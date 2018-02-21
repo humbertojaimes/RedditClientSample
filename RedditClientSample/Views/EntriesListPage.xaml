@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RedditClientSample.Views.EntriesListPage" Title="{Binding Title}" Icon="{Binding Icon}" xmlns:viewmodels="clr-namespace:RedditClientSample.ViewModels" xmlns:converters="clr-namespace:RedditClientSample.Views.Converters">
+<ContentPage x:Name="EntriesListPage" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RedditClientSample.Views.EntriesListPage" Title="{Binding Title}" Icon="{Binding Icon}" xmlns:viewmodels="clr-namespace:RedditClientSample.ViewModels" xmlns:converters="clr-namespace:RedditClientSample.Views.Converters">
     <ContentPage.BindingContext>
         <viewmodels:EntriesListViewModel />
     </ContentPage.BindingContext>
@@ -19,7 +19,7 @@
                         <ViewCell>
                             <Grid Padding="5,10,5,0" BackgroundColor="Black">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="20" />
                                     <ColumnDefinition />
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -29,7 +29,7 @@
                                     <RowDefinition Height="25" />
                                     <RowDefinition Height="25" />
                                     <RowDefinition Height="75" />
-                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="45" />
                                 </Grid.RowDefinitions>
                                 <BoxView Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="0" HeightRequest="5" WidthRequest="5" Color="{Binding WasReaded,Converter={StaticResource boolToColorIndicatorConverter}" />
                                 <Label TextColor="Red" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Author}" />
@@ -38,8 +38,12 @@
                                     <Image WidthRequest="70" HeightRequest="70" HorizontalOptions="Center" Aspect="AspectFit" Source="{Binding Thumbnail,Converter={StaticResource uriToCachedImageCvt}" />
                                     <Label TextColor="White"  VerticalOptions="Center" Text="{Binding Title}" LineBreakMode="WordWrap" FontSize="Small" />
                                 </StackLayout>
-                                <Image Grid.Row="3" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="20" HeightRequest="20" Source="menu.png" />
-                                <Label TextColor="DarkRed"  Grid.Row="3" Grid.ColumnSpan="3" Grid.Column="2" Text="{Binding CommentsNumber,StringFormat='{0} comments'}" />
+                                <Image Grid.Row="3" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="20" HeightRequest="20" Source="remove" >
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Handle_Tapped" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Label TextColor="DarkRed"  Grid.Row="3" Grid.ColumnSpan="3" Grid.Column="2"  VerticalOptions="Center" Text="{Binding CommentsNumber,StringFormat='{0} comments'}" />
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

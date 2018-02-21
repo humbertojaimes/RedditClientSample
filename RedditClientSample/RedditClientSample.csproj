@@ -64,6 +64,10 @@
       <DependentUpon>EntryDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\RestServices\RestRedditService.cs" />
+    <Compile Include="Extensions\IntExtensions.cs" />
+    <Compile Include="Views\Converters\DateToElapsedHoursConverter.cs" />
+    <Compile Include="Views\Converters\UriToCachedImage.cs" />
+    <Compile Include="Views\Converters\BoolToColorIndicatorConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -97,6 +101,8 @@
     <Folder Include="Helpers\" />
     <Folder Include="Constants\" />
     <Folder Include="Services\ResponseEntities\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Views\Converters\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.0.280555\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.280555\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />

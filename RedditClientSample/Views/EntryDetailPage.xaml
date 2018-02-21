@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="RedditClientSample.Views.EntryDetailPage"
-    xmlns:viewmodels="clr-namespace:RedditClientSample.ViewModels"
-    Title="{Binding Title}"
-    Icon="{Binding Icon}"
-    >
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RedditClientSample.Views.EntryDetailPage" xmlns:viewmodels="clr-namespace:RedditClientSample.ViewModels" Title="{Binding Title}" Icon="{Binding Icon}" xmlns:converters="clr-namespace:RedditClientSample.Views.Converters">
     <ContentPage.BindingContext>
         <viewmodels:EntryDetailViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:UriToCachedImage x:Key="uriToCachedImageCvt" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
+        <Grid Padding="40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+                <RowDefinition Height="300" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" HorizontalOptions="Center" FontSize="Large" Text="{Binding SelectedRedditEntry.Author}" />
+            <Image Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="250" HeightRequest="250" Source="{Binding SelectedRedditEntry.Thumbnail,Converter={StaticResource uriToCachedImageCvt}}" />
+            <Label Grid.Row="2" FontSize="Medium" Text="{Binding SelectedRedditEntry.Title}" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using RedditClientSample.Models;
 using Xamarin.Forms;
 
 namespace RedditClientSample.Views
@@ -10,6 +10,7 @@ namespace RedditClientSample.Views
         public EntryDetailPage()
         {
             InitializeComponent();
+           
         }
     }
 }

@@ -31,10 +31,10 @@ namespace RedditClientSample.Models
             }
         }
 
-        private int createdUtc;
+        private DateTime createdUtc;
 
         [JsonProperty("created_utc")]
-        public int Createdutc
+        public DateTime Createdutc
         {
             get { return createdUtc; }
             set

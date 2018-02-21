@@ -45,7 +45,7 @@ namespace RedditClientSample.Services.ResponseEntities
         public object approved_by { get; set; }
         public bool over_18 { get; set; }
         public bool hidden { get; set; }
-        public Uri thumbnail { get; set; }
+        public string thumbnail { get; set; }
         public string subreddit_id { get; set; }
         public object edited { get; set; }
         public string link_flair_css_class { get; set; }
